@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cd-pipeline
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cd-pipeline
+  template:
+    metadata:
+      labels:
+        app: cd-pipeline
+    spec:
+      containers:
+      - name: api
+        image: image:latest
+        ports:
+        - containerPort: 8000
